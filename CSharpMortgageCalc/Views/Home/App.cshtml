@@ -1,14 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model CSharpMortgageCalc.Models.Loan
 
 <div class="container">
     <h1 class="mb-2">Loan Calculator</h1>
 
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+            <form asp-controller="Home" asp-action="App" method="post">
+                <div class="form-row">
+                    <div class="col-12 form-group">
+                        <label asp-for="Amount">Loan Amount:</label>
+                        <input type="number" class="form-control" id="loanAmount" min="1000" step="500" value=@Model.Amount asp-for="Amount" />
+                    </div>
+                    <div class="col-12 form-group">
+                        <label asp-for="Term">Term:</label>
+                        <input type="number" class="form-control" id="loanTerm" min="1" value=@Model.Term asp-for="Term" />
+                    </div>
+                    <div class="col-12 form-group">
+                        <label asp-for="Rate">Rate:</label>
+                        <input type="number" class="form-control" id="loanRate" min="1" value=@Model.Rate asp-for="Rate" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark mt-2">Calculate</button>
+            </form>
+        </div>
         <div class="col"></div>
     </div>
 
